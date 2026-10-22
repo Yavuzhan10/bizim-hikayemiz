@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sadece Sana ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff3f6;color:#693448;
+font-family:Georgia,serif;text-align:center}
+header{padding:45px 16px 30px;
+background:linear-gradient(145deg,#f3b2c7,#fff0f4)}
+h1{font-size:clamp(34px,8vw,48px);margin:12px 0}
+h2{color:#b34d70}
+p{line-height:1.8}
+.heart{font-size:42px;animation:pulse 1.3s infinite}
+@keyframes pulse{50%{transform:scale(1.16)}}
+section{padding:28px 16px;max-width:750px;margin:auto}
+input{padding:14px;border:1px solid #e7b4c5;border-radius:12px;
+font-size:16px;width:100%;max-width:300px}
+button{padding:13px 22px;border:0;border-radius:25px;
+background:#b94f73;color:white;font-size:16px;cursor:pointer}
+#message{color:#a52f53;min-height:24px}
+#main{display:none}
+.counter{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
+.unit{background:white;border-radius:13px;padding:14px 10px;
+min-width:70px;box-shadow:0 3px 14px #e7b4c544}
+.unit strong{display:block;font-size:25px;color:#b94f73}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gallery img{width:100%;height:200px;object-fit:cover;border-radius:14px}
+#letter{display:none;white-space:pre-line;text-align:left;
+background:white;padding:22px;border-radius:16px;line-height:1.9;
+margin-top:18px}
+footer{padding:25px;color:#a46b80}
+</style>
+</head>
+<body>
+
+<div id="gate">
+<header>
+  <div class="heart">💗</div>
+  <p>Kalbimin en güzel köşesine...</p>
+  <h1>Sadece Sana</h1>
+  <p>Bizim küçük dünyamıza hoş geldin.</p>
+</header>
+<section>
+  <h2>Bir sırrımız var 💌</h2>
+  <p>Bu sayfanın kapısını açmak için şifremizi gir.</p>
+  <input id="pass" type="password" placeholder="Bizim şifremiz..."
+  autocomplete="off">
+  <p><button onclick="unlock()">Kalbimin kapısını aç ❤️</button></p>
+  <p id="message" role="status"></p>
+</section>
+</div>
+
+<div id="main">
+<header>
+  <div class="heart">❤️</div>
+  <p>İyi ki yollarımız kesişmiş...</p>
+  <h1>Bizim Hikâyemiz</h1>
+  <p>En sevdiğim hikâye, bizimki.</p>
+</header>
+
+<section>
+  <h2>Birlikte geçen zamanımız ⏳</h2>
+  <p>Seninle geçen her an çok kıymetli.</p>
+  <div class="counter">
+    <div class="unit"><strong id="days">0</strong>gün</div>
+    <div class="unit"><strong id="hours">0</strong>saat</div>
+    <div class="unit"><strong id="minutes">0</strong>dakika</div>
+    <div class="unit"><strong id="seconds">0</strong>saniye</div>
+  </div>
+</section>
+
+<section>
+  <h2>En güzel anılarımız 📸</h2>
+  <p>Birlikte biriktirdiğimiz güzel anlar...</p>
+  <div class="gallery">
+    <img src="foto1.jpg" alt="Birlikte güzel bir anımız">
+    <img src="foto2.jpg" alt="Birlikte güzel bir anımız">
+    <img src="foto3.jpg" alt="Birlikte güzel bir anımız">
+  </div>
+  <p>Her fotoğrafta ayrı bir mutluluk saklı. ❤️</p>
+</section>
+
+<section>
+  <h2>Sana bir mektubum var 💌</h2>
+  <p>Belki her zaman söyleyemiyorum ama...</p>
+  <button onclick="toggleLetter()">Mektubunu aç</button>
+  <div id="letter"></div>
+</section>
+
+<footer>
+  <div class="heart">♥</div>
+  <p>Nice güzel anılara, el ele ve yan yana...</p>
+</footer>
+</div>
+
+<script>
+// KENDİ ŞİFRENİ BURAYA YAZ
+const password = "261018";
+
+// İLİŞKİNİZİN BAŞLANGIÇ TARİHİ
+const startDate = new Date("2018-10-26T00:00:00");
+
+// KENDİ MEKTUBUNU BURAYA YAZ
+const loveLetter = `Benim güzeller güzelimm,
+
+8 yıl dile kolay, gerçekten dile kolay 10 yıl dediğin zamana 
+gelmemize çok az kaldı farkındaysann.Seni kaçırma planlarımı 
+devreye sokmak üzereyimm.
+
+8 yıl demek insana kolay da
+O yılları seninle geçirmek daha kolay oldu ya
+Her anımız her dakikamız aklımda 
+Sensiz geçirdiğim saniye haram bana
+Ben sana tutuldum kaldım kimseyi istemem başka
+Bir sen,bir sen yeter bana
+
+Zaten baska kimi niye isteyeyim dünyada 
+En güzeli, dualarımın cevabı tam karşımda 
+Yaradan seni gönderdiyse zaten bana
+Ne gelir elden şükretmekten başka 
+O yüzden asla doyamammmm ben sana
+Pahası ne olursa olsun bırakamam seni sana
+
+Seni mutlu etmek için elimde olan olmayan ne varsa 
+Hepsi senin uğruna feda
+...
+
+Yılları günden kısa edecek kadar nasıl aşık ettin 
+kendine beni. Her anımız birlikte olsun istiyorum
+Seninle geçen her gün benim için çok özel.
+Birlikte güldüğümüz, gezdiğimiz ve hayal kurduğumuz
+her anı kalbimde saklıyorum.Her yıl adeta saniye gibi
+geçiyor seninle hep yanımda kal gitme hiçbir yere.
+
+İyi ki hayatımdasın, iyi ki varsın güzelim benimm.
+Daha nice güzel yıllarımız maceralarımız olsun istiyorum.
+Heppp yanımda kal istiyorummm.Her yıldönümümüzde ilki
+gibi hatta bir öncekinden daha çok aşık olmaya devam
+edeceğim sana güzeller güzelim kalbim hep senin.
+
+Seni çok seviyorumm. ♥️`;
+
+function unlock(){
+  const entered = document.getElementById("pass").value;
+  if(entered === password){
+    document.getElementById("gate").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    document.getElementById("message").textContent = "";
+    updateCounter();
+  }else{
+    document.getElementById("message").textContent =
+      "Şifre doğru değil, bir daha dene ❤️";
+  }
+}
+document.getElementById("pass").addEventListener("keydown",e=>{
+  if(e.key==="Enter") unlock();
+});
+
+function updateCounter(){
+  const diff = Date.now() - startDate.getTime();
+  if(diff < 0) return;
+  document.getElementById("days").textContent =
+    Math.floor(diff/86400000);
+  document.getElementById("hours").textContent =
+    Math.floor(diff/3600000)%24;
+  document.getElementById("minutes").textContent =
+    Math.floor(diff/60000)%60;
+  document.getElementById("seconds").textContent =
+    Math.floor(diff/1000)%60;
+}
+setInterval(updateCounter,1000);
+
+function toggleLetter(){
+  const el=document.getElementById("letter");
+  if(el.style.display==="block"){
+    el.style.display="none";
+  }else{
+    el.textContent=loveLetter;
+    el.style.display="block";
+  }
+}
+</script>
+</body>
+</html>
